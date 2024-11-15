@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidade de Aulas</title>
+    <style>
+    
+        /* Centraliza todo o conteúdo do body */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            align-items: center; 
+        }
+       
+        h2 {
+            margin-top: 20px;
+        }
+
+        label, input {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }    
+
+        input[type="text"], input[type="submit"], input[type="tel"], input[type="email"], button {
+            padding: 8px 16px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-color: #ffffe0;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin: auto;
+            table-layout: fixed;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td:first-child, th:first-child {
+            width: 30%;
+        }
+
+        td:not(:first-child), th:not(:first-child) {
+            width: 14%;
+        }
+        
+        /* Ajuste para telas menores */
+        @media (max-width: 768px) {
+            table {
+                width: 90%;
+            }
+
+            td, th {
+                font-size: 14px;
+                padding: 6px;
+            }
+        }
+
+        /* Ajuste para telas muito pequenas (como celulares) */
+        @media (max-width: 480px) {
+            td, th {
+                font-size: 12px;
+                padding: 4px;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            input[type="text"], input[type="submit"], button {
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Contato e Disponibilidade para aulas</h1>
+    <form id="formulario" action="https://script.google.com/macros/s/AKfycbxSKcBS8FTOYWAiUe_RDbS18DMGAKnix6Ct8vcGtZmiQtaKCjciRAnc2jWUONfRdD3f/exec" method="POST" target="hidden_iframe" onsubmit="mostrarMensagem(event)">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="telefone">Telefone para WhatsApp:</label>
+        <input type="tel" id="telefone" name="telefone" pattern="[0-9]+" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <!-- Campo oculto para armazenar a disponibilidade -->
+        <input type="hidden" id="disponibilidade" name="disponibilidade">
+
+        <!-- Tabelas de disponibilidade -->
+        <h2>Tabela de Disponibilidade de Aulas</h2>
+        <h3>Menu: ✅ Disponível (Ótimo), 🔵 Viável (Bom), ❌ Indisponível (Impossível)</h3>
+
+        <!-- Matutino -->
+<table>
+    <tr>
+        <th>Aula / Turno</th>
+        <th>Seg</th>
+        <th>Ter</th>
+        <th>Qua</th>
+        <th>Qui</th>
+        <th>Sex</th>
+    </tr>
+    <tr>
+        <td>1ª Aula (Mat)</td>
+        <td data-id="a11" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a12" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a13" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a14" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a15" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>2ª Aula (Mat)</td>
+        <td data-id="a21" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a22" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a23" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a24" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a25" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>3ª Aula (Mat)</td>
+        <td data-id="a31" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a32" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a33" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a34" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a35" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>4ª Aula (Mat)</td>
+        <td data-id="a41" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a42" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a43" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a44" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a45" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>5ª Aula (Mat)</td>
+        <td data-id="a51" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a52" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a53" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a54" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="a55" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+</table>
+
+<!-- Vespertino -->
+<table>
+    <tr>
+        <th>Aula / Turno</th>
+        <th>Seg</th>
+        <th>Ter</th>
+        <th>Qua</th>
+        <th>Qui</th>
+        <th>Sex</th>
+    </tr>
+    <tr>
+        <td>1ª Aula (Ves)</td>
+        <td data-id="b11" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b12" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b13" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b14" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b15" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>2ª Aula (Ves)</td>
+        <td data-id="b21" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b22" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b23" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b24" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b25" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>3ª Aula (Ves)</td>
+        <td data-id="b31" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b32" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b33" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b34" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b35" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>4ª Aula (Ves)</td>
+        <td data-id="b41" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b42" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b43" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b44" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b45" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>5ª Aula (Ves)</td>
+        <td data-id="b51" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b52" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b53" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b54" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="b55" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+</table>
+
+<!-- Noturno -->
+<table>
+    <tr>
+        <th>Aula / Turno</th>
+        <th>Seg</th>
+        <th>Ter</th>
+        <th>Qua</th>
+        <th>Qui</th>
+        <th>Sex</th>
+    </tr>
+    <tr>
+        <td>1ª Aula (Not)</td>
+        <td data-id="c11" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c12" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c13" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c14" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c15" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>2ª Aula (Not)</td>
+        <td data-id="c21" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c22" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c23" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c24" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c25" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>3ª Aula (Not)</td>
+        <td data-id="c31" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c32" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c33" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c34" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c35" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>4ª Aula (Not)</td>
+        <td data-id="c41" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c42" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c43" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c44" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c45" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+    <tr>
+        <td>5ª Aula (Not)</td>
+        <td data-id="c51" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c52" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c53" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c54" onclick="toggleSymbol(this)">❌</td>
+        <td data-id="c55" onclick="toggleSymbol(this)">❌</td>
+    </tr>
+</table>
+
+        <!-- Botão de enviar movido para o final -->
+        <button type="submit">Quero finalizar!</button>
+       
+       
+</form>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <script>
+        function toggleSymbol(cell) {
+            const symbols = ["✅", "🔵", "❌"];
+            const currentSymbol = cell.innerText;
+            let currentIndex = symbols.indexOf(currentSymbol);
+            let nextIndex = (currentIndex + 1) % symbols.length;
+            cell.innerText = symbols[nextIndex];
+        }
+
+        function mostrarMensagem(event) {
+            event.preventDefault();
+            alert("Dados enviados com sucesso! ")
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone").value;
+            const email = document.getElementById("email").value;
+
+            let disponibilidade = [];
+            const tables = document.querySelectorAll('table');
+
+            tables.forEach((table) => {
+                let tableData = [];
+                const rows = table.querySelectorAll('tr');
+
+                rows.forEach((row, index) => {
+                    const cells = row.querySelectorAll('td');
+
+                    if (index !== 0) {
+                        const rowData = Array.from(cells).map(cell => cell.innerText);
+                        tableData.push(rowData);
+                    }
+                });
+
+                disponibilidade.push(tableData);
+            });
+
+            if (nome && telefone && email) 
+                {
+                document.getElementById("disponibilidade").value = JSON.stringify(disponibilidade);
+                document.getElementById("formulario").submit();
+                document.getElementById("nome").value = '';
+                document.getElementById("telefone").value = '';
+                document.getElementById("email").value = '';
+                }
+                else {
+                    alert("Por favor, preencha todos os campos.");
+                }
+            }
+
+    </script>
+</body>
+</html>
+
+
+

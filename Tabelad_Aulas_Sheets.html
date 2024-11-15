@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidade de Aulas</title>
+    <style>
+        /* Estilos do corpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #f4f4f9;
+        }
+
+        h1, h2, label {
+            text-align: left;
+            width: 100%;
+            font-size: 24px;
+            color: #333;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        /* Container principal */
+        .container {
+            width: 75%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos do formulário */
+        form {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"], button, select {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Definindo larguras específicas para os campos */
+        input[type="text"], input[type="tel"], input[type="email"] {
+            width: 100%; /* 100% de largura para os campos de texto */
+        }
+
+        button, select {
+            width: 100%; /* 100% de largura para botões e select */
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos da tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        td input, td select {
+            width: 80%;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        /* Definição de larguras específicas para as colunas da tabela */
+        td:nth-child(1), th:nth-child(1) {
+            width: 40%;  /* 2 vezes mais larga */
+        }
+
+        td:nth-child(2), th:nth-child(2) {
+            width: 18%;  /* 80% mais estreita */
+        }
+
+        td:nth-child(3), th:nth-child(3) {
+            width: 22%;  /* 50% mais estreita */
+        }
+
+        td:nth-child(4), th:nth-child(4) {
+            width: 20%;  /* Mantém a largura original */
+        }
+
+        /* Botão de adicionar linha */
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start;
+            width: 20%;
+        }
+
+        .add-button {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+
+        .add-button:hover {
+            background-color: #218838;
+        }
+        
+        
+        /* Estilo para o botão de Remover */
+    button {
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        background-color: #f9f9f9; /* Cor de fundo padrão do botão */
+        border: 1px solid #ccc;    /* Cor da borda */
+        border-radius: 5px;        /* Bordas arredondadas */
+        cursor: pointer;           /* Cursor de mão ao passar o mouse */
+        width: 100%;                /* Largura total */
+        }
+
+    button:hover {
+        background-color: #f1f1f1; /* Cor de fundo quando o botão for sobreposto */
+        }
+
+      /* Estilo para o botão "Remover" (gerado dinamicamente) */
+    td button {
+        background-color: #dc3545; /* Cor de fundo vermelha */
+        color: #fff;               /* Cor do texto branco */
+        font-size: 14px;
+        padding: 14px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        }
+
+    td button:hover {
+        background-color: #c82333; /* Cor de fundo vermelha mais escura quando sobreposto */
+        }
+        
+        
+        
+
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            table, th, td {
+                font-size: 14px;
+            }
+            .buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Largura personalizada para o botão Enviar */
+        .submit-button {
+            width: 250px; /* Largura fixa de 250px */
+            background-color: #007BFF;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Formulário -->
+        <form 
+            id="formulario" 
+            action="https://script.google.com/macros/s/AKfycbw3ilsV9sCUeRq752Nu7z-8Z9frjbho70sODDLsB0GeLlaNHIat_0A834sMLqa8btPjzw/exec" 
+            method="POST" 
+            target="hidden_iframe" 
+            onsubmit="mostrarMensagem(event)"
+        >
+            <h1>Formulário de Distribuição de Aulas</h1>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required style="width: 70%;">
+
+            <label for="telefone">Telefone para WhatsApp:</label>
+            <input type="tel" id="telefone" name="telefone" pattern="[0-9]+" required style="width: 40%;">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required style="width: 60%;">
+
+            <input type="hidden" id="disponibilidade" name="disponibilidade">
+        </form>
+
+        <!-- Tabela -->
+        <h2>Tabela de Aulas do(a) Professor(a):</h2>
+        <h2>Verifique suas aulas com a direção e coloque as aulas definidas na tabela abaixo:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Disciplina</th>
+                    <th>Turma</th>
+                    <th>Turno</th>
+                    <th>Número</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select style="width: 80%;">
+                            <option value="Matemática">Matemática</option>
+                            <option value="Português">Português</option>
+                            <option value="História">História</option>
+                            <option value="Geografia">Geografia</option>
+                            <option value="Física">Física</option>
+                            <option value="Química">Química</option>
+                            <option value="Biologia">Biologia</option>
+                            <option value="Inglês">Inglês</option>
+                        </select>
+                    </td>
+                    <td><input type="text" pattern="[0-9]{3}" maxlength="3" placeholder="Ex: 101" style="width: 100%;"></td>
+                    <td>
+                        <select style="width: 80%;">
+                            <option value="Mat">Mat</option>
+                            <option value="Vesp">Vesp</option>
+                            <option value="Not">Not</option>
+                            <option value="Mag-Not">Mag-Not</option>
+                            <option value="Tec-Ves">Tec-Ves</option>
+                            <option value="Tec-Not">Tec-Not</option>
+                        </select>
+                    </td>
+                    <td><input type="number" max="9" min="1" placeholder="Ex: 1" maxlength="1" style="width: 80%;"></td>
+                    <td><button onclick="removeRowFromCell(this)" style="width: 100%;">Remover</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons">
+            <button class="add-button" onclick="addRow(this)">Adicionar Linha</button>
+        </div>
+
+        <!-- Botão de envio com largura personalizada -->
+        <button type="submit" form="formulario" class="submit-button">Enviar</button>
+    </div>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <script>
+  
+        function addRow(button) {
+            const tbody = button.closest("div").previousElementSibling.querySelector("tbody");
+            const newRow = document.createElement("tr");
+
+            // Coluna Disciplina
+            const disciplinaCell = document.createElement("td");
+            const disciplinaSelect = document.createElement("select");
+            const disciplinas = ["Matemática", "Português", "História", "Geografia", "Física", "Química", "Biologia", "Inglês"];
+            disciplinas.forEach(disciplina => {
+                const option = document.createElement("option");
+                option.value = disciplina;
+                option.textContent = disciplina;
+                disciplinaSelect.appendChild(option);
+            });
+            disciplinaCell.appendChild(disciplinaSelect);
+            newRow.appendChild(disciplinaCell);
+
+            // Coluna Turma
+            const turmaCell = document.createElement("td");
+            const turmaInput = document.createElement("input");
+            turmaInput.type = "text";
+            turmaInput.placeholder = "Ex: 101";
+            turmaCell.appendChild(turmaInput);
+            newRow.appendChild(turmaCell);
+
+            // Coluna Turno
+            const turnoCell = document.createElement("td");
+            const turnoSelect = document.createElement("select");
+            const turnos = ["Mat", "Vesp", "Not", "Mag-Not", "Tec-Ves", "Tec-Not"];
+            turnos.forEach(turno => {
+                const option = document.createElement("option");
+                option.value = turno;
+                option.textContent = turno;
+                turnoSelect.appendChild(option);
+            });
+            turnoCell.appendChild(turnoSelect);
+            newRow.appendChild(turnoCell);
+
+            // Coluna Número de Aulas
+            const numeroAulasCell = document.createElement("td");
+            const numeroAulasInput = document.createElement("input");
+            numeroAulasInput.type = "number";
+            numeroAulasInput.max = "9";
+            numeroAulasInput.min = "1";
+            numeroAulasInput.placeholder = "Ex: 1";
+            numeroAulasCell.appendChild(numeroAulasInput);
+            newRow.appendChild(numeroAulasCell);
+
+            // Coluna Remover
+            const removeCell = document.createElement("td");
+            const removeButton = document.createElement("button");
+            removeButton.innerText = "Remover";
+            removeButton.onclick = () => removeRowFromCell(removeButton);
+            removeCell.appendChild(removeButton);
+            newRow.appendChild(removeCell);
+
+            tbody.appendChild(newRow);
+        }
+
+        // Remove a linha específica da tabela
+        function removeRowFromCell(button) {
+            const row = button.closest("tr");
+            row.remove();
+        }
+
+        // Mostra uma mensagem ao enviar o formulário e processa a tabela
+        function mostrarMensagem(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone").value;
+            const email = document.getElementById("email").value;
+
+            if (!nome || !telefone || !email) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            const disponibilidade = [];
+            document.querySelectorAll("table").forEach((table) => {
+                const rows = Array.from(table.querySelectorAll("tbody tr"));
+                const tableData = rows.map((row) => [
+                    row.querySelector("td:nth-child(1) select").value,  // Disciplina
+                    row.querySelector("td:nth-child(2) input").value,  // Turma
+                    row.querySelector("td:nth-child(3) select").value,  // Turno
+                    row.querySelector("td:nth-child(4) input").value   // Número de Aulas
+                ]);
+                disponibilidade.push(tableData);
+            });
+
+            document.getElementById("disponibilidade").value = JSON.stringify(disponibilidade);
+            document.getElementById("formulario").submit();
+            alert("Dados enviados com sucesso!");
+        }
+          
+    </script>
+</body>
+</html>
+
